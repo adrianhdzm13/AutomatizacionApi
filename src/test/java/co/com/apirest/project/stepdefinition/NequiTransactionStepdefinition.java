@@ -48,7 +48,8 @@ public class NequiTransactionStepdefinition {
 
 
     @Entonces("la transacción debe ser aprobada")
-    public void laTransaccionDebeSerAprobada() {
+    public void laTransaccionDebeSerAprobada() throws InterruptedException {
+        Thread.sleep(3000);
         OnStage.theActorCalled(ACTOR).attemptsTo(
                 Call.service().apiget(
                         BASE_URL.replace(TYPE_ENVIRONMENT, ENV_QA),

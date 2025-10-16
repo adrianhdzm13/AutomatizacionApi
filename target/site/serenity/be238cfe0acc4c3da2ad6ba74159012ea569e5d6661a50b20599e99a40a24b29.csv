@@ -1,2 +1,2 @@
 "Story","Title","Result","Date","Stability","Duration (s)"
-"Transacción con tarjeta en Wompi Sandbox","Crear una transacción declinada con tarjeta","FAILURE","2025-10-16T02:39:02.617-05:00[America/Bogota]","0.0","15.45"
+"Transacción con tarjeta en Wompi Sandbox","Crear una transacción aprobada con tarjeta","FAILURE","2025-10-16T10:12:57.386-05:00[America/Bogota]","0.0","15.12"
