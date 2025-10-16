@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Crear una transacción declinada con tarjeta</title>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff"><link rel="stylesheet" href="bootstrap-icons/font/bootstrap-icons.css"><!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><!-- Required Stylesheets -->
+<link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+<!-- Required Javascript -->
+<script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.11.3/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.11.3/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.11.3/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+<link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/>
+<!--CHART.JS-->
+<script src="chartjs/chart.js"></script>
+<script src="chartjs/chartjs-plugin-datalabels@2.0.0"></script>
+<script src="chartjs/patternomaly.min.js"></script>
+<script>
+    // Register the plugin to all charts:
+    Chart.register(ChartDataLabels);
+</script>
+<!-- JQuery-UI -->
+<link type="text/css" href="jqueryui/1.11.2-start/jquery-ui.min.css" rel="Stylesheet" />
+<script type="text/javascript" src="jqueryui/1.11.2-start/jquery-ui.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.11.3/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.11.3/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.11.3/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+<!-- ImgPreview -->
+<script src="scripts/imgpreview.full.jquery.js" type="text/javascript"></script>
+</head>
+
+<body class="results-page">
+
+
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">
+                <span class="projecttitle">Serenity BDD Report</span>
+                <span class="projectsubtitle"></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="middlecontent">
+    <div id="contenttop">
+        <div class="middlebg">
+        <span class="breadcrumbs">
+            <a href="index.html" class="breadcrumbs">Home</a>
+
+ <!-- inflection.of(breadcrumb.displayName).asATitle()-->
+            > <a href="7209944c8ed7583b15e4d1f1b7b016cf1a3573e2de711b03b6e3f84532642959.html">Transacci&oacute;n con tarjeta en Wompi Sandbox</a>
+        > Crear una transacci&oacute;n declinada con tarjeta
+        </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+
+    <div class="clr"></div>
+
+    <!--/* starts second table*/-->
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#"><i class="bi bi-journal-check"></i> Overall Test Results</a>
+        </li>
+        <li >
+            <a href="capabilities.html"><i class="bi bi-journal-text"></i> Requirements</a>
+        </li>
+        <li >
+            <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 16-10-2025 02:40</span>
+    <br style="clear:left"/>
+</div>
+    <div class="clr"></div>
+
+
+    <div id="contentbody">
+        <div class="titlebar">
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td>
+                                <div>
+                                    <h3 class="discreet-story-header">
+                                        <i class="fs-2 bi bi-chat-left-quote title-icon"></i>
+                                        <span class="story-header-title">Transacción Con Tarjeta En Wompi Sandbox </span>
+                                    </h3>
+
+                                </div>
+
+                        </td>
+                        <td valign="top">
+                            <p class="tag">
+                                    <span class="badge example-tag tag-badge" style="background:default;">
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;"
+                                                                      href="b3a85bea996e885545d88807110b0ffcb7adb0a929b082e1bb58864c639a4d3b.html">1
+                                    (tag)</a>
+                                </span>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td colspan="2" class="test-title-bar">
+                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon fa-2x' title='SUCCESS'></i></a></span>
+                            <span class="test-case-title">
+                                <span class="success-color">
+                                    Crear una transacci&oacute;n declinada con tarjeta
+                                        <span class="related-issue-title"></span>
+                                </span>
+                            </span>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+
+            <!-- CAST MEMBERS -->
+            <div>&nbsp;</div>
+            <div>
+                <h3 class="discreet-story-header">
+                    <i class="fs-2 bi bi-people large-icon"></i>
+                    <span class="story-header-title">
+                        <a class="btn btn-primary" data-toggle="collapse" href="#castDetails"
+                           role="button" aria-expanded="true" aria-controls="castDetails">Cast</a>
+                    </span>
+                </h3>
+            </div>
+            <div class="collapse multi-collapse" id="castDetails">
+                <table class="cast">
+                    <tr>
+                            <td width="100%">
+                                <h4>
+                                    <i class="fs-2 bi bi-person"></i>&nbsp;
+                                    <span>
+                                        <a data-toggle="collapse" href="#abilities-Adrian" aria-expanded="false" aria-controls="abilities">Adrian</a>
+                                        
+                                    </span>
+                                </h4>
+                                <div class="collapse multi-collapse" id="abilities-Adrian">
+                                    <div>
+                                        <span class="cast-description">Adrian can:</span>
+                                        <ul>
+                                                <li>browse the web</li>
+                                                <li>call an API at https://api-sandbox.co.uat.wompi.dev/v1</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        </td>
+        </tr>
+        </table>
+    </div>
+    <!-- END CAST MEMBERS -->
+
+
+</div>
+</div>
+
+<div class="clr"></div>
+
+
+<div id="beforetable"></div>
+
+
+<div id="tablecontents">
+    <div>
+        <table class="step-table">
+            <tr class="step-titles">
+                <th width="65">
+                </th>
+                <th class="step-description-column greentext">
+                    Steps
+                </th>
+
+                <th width="130" class="greentext">Outcome</th>
+                <th width="100" class="greentext"><i title="Duration" class="bi bi-stopwatch"></i></th>
+            </tr>
+            <tr class="step-table-separator">
+                <td colspan="5"></td>
+            </tr>
+
+                <tr class="test-SUCCESS">
+
+                    <td width="50" class="step-icon">
+                        <a name="0"></a>
+                            <span style="margin-left: 20px;"
+                                  class="top-level-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="top-level-step">
+                                                Dado "Adrian" obtiene la baseurl de la api
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step">043ms</span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="50" class="step-icon">
+                        <a name="1"></a>
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection1')"
+                               style="display:block">
+                                <i class="bi bi-plus-square imgstepSection1 success-icon"
+                                   style="margin-left: 20px; float:left; padding-right:5px"></i>
+                            </a>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection1')"
+                               style="display:block;">
+                                <span class="top-level-step">
+                                                Dado que el usuario obtiene los tokens de aceptación de Wompi
+                                        </span>
+                            </a>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step">5s 548ms</span></td>
+                </tr>
+                    <tr>
+                        <td colspan="5">
+                            <table id="stepSection1" class="step-table-nested" style="display:none;">
+                <tr class="test-SUCCESS">
+
+                    <td width="70" class="step-icon">
+                        <a name="1-0"></a>
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection1-0')"
+                               style="display:block">
+                                <i class="bi bi-plus-square imgstepSection1-0 success-icon"
+                                   style="margin-left: 40px; float:left; padding-right:5px"></i>
+                            </a>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection1-0')"
+                               style="display:block;">
+                                <span class="nested-step">
+                                                Adrian call the service at execute GET
+                                        </span>
+                            </a>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                    <td width="130"><span class="nested-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-step">4s 105ms</span></td>
+                </tr>
+                    <tr>
+                        <td colspan="5">
+                            <table id="stepSection1-0" class="step-table-nested" style="display:none;">
+                <tr class="test-SUCCESS">
+
+                    <td width="90" class="step-icon">
+                        <a name="1-0-0"></a>
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection1-0-0')"
+                               style="display:block">
+                                <i class="bi bi-plus-square imgstepSection1-0-0 success-icon"
+                                   style="margin-left: 60px; float:left; padding-right:5px"></i>
+                            </a>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection1-0-0')"
+                               style="display:block;">
+                                <span class="nested-step">
+                                                Adrian get request
+                                        </span>
+                            </a>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                    <td width="130"><span class="nested-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-step">4s 090ms</span></td>
+                </tr>
+                    <tr>
+                        <td colspan="5">
+                            <table id="stepSection1-0-0" class="step-table-nested" style="display:none;">
+                <tr class="test-SUCCESS">
+
+                    <td width="110" class="step-icon">
+                        <a name="1-0-0-0"></a>
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection1-0-0-0')"
+                               style="display:block">
+                                <i class="bi bi-plus-square imgstepSection1-0-0-0 success-icon"
+                                   style="margin-left: 80px; float:left; padding-right:5px"></i>
+                            </a>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection1-0-0-0')"
+                               style="display:block;">
+                                <span class="nested-step">
+                                                Adrian executes a GET on the resource /merchants/pub_stagtest_g2u0HQd3ZMh05hsSgTS2lUV8t3s4mOt7
+                                        </span>
+                            </a>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                    <td width="130"><span class="nested-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-step">4s 030ms</span></td>
+                </tr>
+                    <tr>
+                        <td colspan="5">
+                            <table id="stepSection1-0-0-0" class="step-table-nested" style="display:none;">
+                <tr class="test-SUCCESS">
+
+                    <td width="130" class="step-icon">
+                        <a name="1-0-0-0-0"></a>
+                            <span style="margin-left: 100px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                GET https://api-sandbox.co.uat.wompi.dev/v1/merchants/pub_stagtest_g2u0HQd3ZMh05hsSgTS2lUV8t3s4mOt7
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-6">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: https://api-sandbox.co.uat.wompi.dev/v1/merchants/pub_stagtest_g2u0HQd3ZMh05hsSgTS2lUV8t3s4mOt7</p>
+                                    <p>Status code: 200</p>
+                                    <p>Content Type: application/json</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Accept=JSON<br>Content-Type=application/json</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Content-Type: application/json<br>Transfer-Encoding: chunked<br>Connection: keep-alive<br>Date: Thu, 16 Oct 2025 07:40:29 GMT<br>vary: Origin<br>vary: accept-encoding<br>apigw-requestid: Sh4pKimloAMEJYg=<br>content-encoding: gzip<br>X-Cache: Miss from cloudfront<br>Via: 1.1 c7c3aaea7e512869ae99fe347cd57aa6.cloudfront.net (CloudFront)<br>X-Amz-Cf-Pop: ATL59-P14<br>X-Amz-Cf-Id: NWl0pJnOUmUw9bbFWEwG-0qy040qS-5WL_1jPbXTNFkjOC-zzH69ag==<br>X-XSS-Protection: 1; mode=block<br>X-Frame-Options: SAMEORIGIN<br>Referrer-Policy: strict-origin-when-cross-origin<br>X-Content-Type-Options: nosniff<br>Strict-Transport-Security: max-age=31536000</pre>
+                                <h4>Response Body</h4>
+                                    <pre>{<br>    &quot;data&quot;: {<br>        &quot;id&quot;: 5113,<br>        &quot;name&quot;: &quot;Alejandra Pruebas Sandbox UAT&quot;,<br>        &quot;email&quot;: &quot;pruebasensandbox@yopmail.com&quot;,<br>        &quot;contact_name&quot;: &quot;Alejandra Pruebas Sandbox UAT&quot;,<br>        &quot;phone_number&quot;: &quot;+573000000000&quot;,<br>        &quot;active&quot;: true,<br>        &quot;logo_url&quot;: null,<br>        &quot;legal_name&quot;: &quot;Alejandra Pruebas Sandbox UAT&quot;,<br>        &quot;legal_id_type&quot;: &quot;CC&quot;,<br>        &quot;legal_id&quot;: &quot;1069879849&quot;,<br>        &quot;public_key&quot;: &quot;pub_stagtest_g2u0HQd3ZMh05hsSgTS2lUV8t3s4mOt7&quot;,<br>        &quot;accepted_currencies&quot;: [<br>            &quot;COP&quot;<br>        ],<br>        &quot;fraud_javascript_key&quot;: null,<br>        &quot;fraud_groups&quot;: [<br>            <br>        ],<br>        &quot;accepted_payment_methods&quot;: [<br>            &quot;NEQUI&quot;,<br>            &quot;PSE&quot;,<br>            &quot;BANCOLOMBIA_TRANSFER&quot;,<br>            &quot;CARD&quot;,<br>            &quot;BANCOLOMBIA_COLLECT&quot;,<br>            &quot;BANCOLOMBIA_QR&quot;,<br>            &quot;DAVIPLATA&quot;,<br>            &quot;BANCOLOMBIA_BNPL&quot;,<br>            &quot;SU_PLUS&quot;<br>        ],<br>        &quot;payment_methods&quot;: [<br>            {<br>                &quot;name&quot;: &quot;BANCOLOMBIA_BNPL&quot;,<br>                &quot;payment_processors&quot;: [<br>                    {<br>                        &quot;name&quot;: &quot;BANCOLOMBIA_BNPL_SANDBOX&quot;<br>                    }<br>                ]<br>            },<br>            {<br>                &quot;name&quot;: &quot;BANCOLOMBIA_COLLECT&quot;,<br>                &quot;payment_processors&quot;: [<br>                    {<br>                        &quot;name&quot;: &quot;BANCOLOMBIA_COLLECT_SANDBOX&quot;<br>                    }<br>                ]<br>            },<br>            {<br>                &quot;name&quot;: &quot;BANCOLOMBIA_QR&quot;,<br>                &quot;payment_processors&quot;: [<br>                    {<br>                        &quot;name&quot;: &quot;BANCOLOMBIA_QR_SANDBOX&quot;<br>                    }<br>                ]<br>            },<br>            {<br>                &quot;name&quot;: &quot;BANCOLOMBIA_TRANSFER&quot;,<br>                &quot;payment_processors&quot;: [<br>                    {<br>                        &quot;name&quot;: &quot;BANCOLOMBIA_TRANSFER_SANDBOX&quot;<br>                    }<br>                ]<br>            },<br>            {<br>                &quot;name&quot;: &quot;CARD&quot;,<br>                &quot;payment_processors&quot;: [<br>                    {<br>                        &quot;name&quot;: &quot;CARD_SANDBOX&quot;<br>                    }<br>                ]<br>            },<br>            {<br>                &quot;name&quot;: &quot;DAVIPLATA&quot;,<br>                &quot;payment_processors&quot;: [<br>                    {<br>                        &quot;name&quot;: &quot;DAVIPLATA_SANDBOX&quot;<br>                    }<br>                ]<br>            },<br>            {<br>                &quot;name&quot;: &quot;NEQUI&quot;,<br>                &quot;payment_processors&quot;: [<br>                    {<br>                        &quot;name&quot;: &quot;NEQUI_SANDBOX&quot;<br>                    }<br>                ]<br>            },<br>            {<br>                &quot;name&quot;: &quot;PSE&quot;,<br>                &quot;payment_processors&quot;: [<br>                    {<br>                        &quot;name&quot;: &quot;PSE_SANDBOX&quot;<br>                    }<br>                ]<br>            },<br>            {<br>                &quot;name&quot;: &quot;SU_PLUS&quot;,<br>                &quot;payment_processors&quot;: [<br>                    {<br>                        &quot;name&quot;: &quot;SU_PLUS_SANDBOX&quot;<br>                    }<br>                ]<br>            }<br>        ],<br>        &quot;presigned_acceptance&quot;: {<br>            &quot;acceptance_token&quot;: &quot;eyJhbGciOiJIUzI1NiJ9.eyJjb250cmFjdF9pZCI6NTA3LCJwZXJtYWxpbmsiOiJodHRwczovL3dvbXBpLmNvbS9hc3NldHMvZG93bmxvYWRibGUvcmVnbGFtZW50by1Vc3Vhcmlvcy1Db2xvbWJpYS5wZGYiLCJmaWxlX2hhc2giOiJkYzJkNGUzMDVlNGQzNmFhYjhjYzU3N2I1YTY5Nzg1MSIsImppdCI6IjE3NjA2MDA0MjktNDgyMDciLCJlbWFpbCI6IiIsImV4cCI6MTc2MDYwNDAyOX0.rLh5yuQfPIY2nSYdT6grcMfJrqFL9kpRmAqdOYea1is&quot;,<br>            &quot;permalink&quot;: &quot;https://wompi.com/assets/downloadble/reglamento-Usuarios-Colombia.pdf&quot;,<br>            &quot;type&quot;: &quot;END_USER_POLICY&quot;<br>        },<br>        &quot;presigned_personal_data_auth&quot;: {<br>            &quot;acceptance_token&quot;: &quot;eyJhbGciOiJIUzI1NiJ9.eyJjb250cmFjdF9pZCI6NDc0LCJwZXJtYWxpbmsiOiJodHRwczovL3dvbXBpLmNvbS9hc3NldHMvZG93bmxvYWRibGUvYXV0b3JpemFjaW9uLXRyYXRhbWllbnRvLWRhdG9zLXBlcnNvbmFsZXMucGRmIiwiZmlsZV9oYXNoIjoiNTE2ODYzZjA3NzZlZWY3NjBkNGI5OWFiMWJlZjRjNzgiLCJqaXQiOiIxNzYwNjAwNDI5LTEyMTk3IiwiZW1haWwiOiIifQ.usFqpATHsS1kcCQULbJpC65fnmVNDKjfwN-_LgVuPP0&quot;,<br>            &quot;permalink&quot;: &quot;https://wompi.com/assets/downloadble/autorizacion-tratamiento-datos-personales.pdf&quot;,<br>            &quot;type&quot;: &quot;PERSONAL_DATA_AUTH&quot;<br>        },<br>        &quot;click_to_pay_dpa_id&quot;: null,<br>        &quot;mcc&quot;: null,<br>        &quot;acquirer_id&quot;: null<br>    },<br>    &quot;meta&quot;: {<br>        <br>    }<br>}</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step"></span></td>
+                </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="70" class="step-icon">
+                        <a name="1-1"></a>
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection1-1')"
+                               style="display:block">
+                                <i class="bi bi-plus-square imgstepSection1-1 success-icon"
+                                   style="margin-left: 40px; float:left; padding-right:5px"></i>
+                            </a>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection1-1')"
+                               style="display:block;">
+                                <span class="nested-step">
+                                                Then {0} valida la respuesta de la API
+                                        </span>
+                            </a>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                    <td width="130"><span class="nested-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-step">068ms</span></td>
+                </tr>
+                    <tr>
+                        <td colspan="5">
+                            <table id="stepSection1-1" class="step-table-nested" style="display:none;">
+                <tr class="test-SUCCESS">
+
+                    <td width="90" class="step-icon">
+                        <a name="1-1-0"></a>
+                            <span style="margin-left: 60px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                SERVICE STATUS
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step">037ms</span></td>
+                </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="70" class="step-icon">
+                        <a name="1-2"></a>
+                            <span style="margin-left: 40px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                Then get acceptance token
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step">900ms</span></td>
+                </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="50" class="step-icon">
+                        <a name="2"></a>
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection2')"
+                               style="display:block">
+                                <i class="bi bi-plus-square imgstepSection2 success-icon"
+                                   style="margin-left: 20px; float:left; padding-right:5px"></i>
+                            </a>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection2')"
+                               style="display:block;">
+                                <span class="top-level-step">
+                                                Cuando el usuario crea una transacción declinada con tarjeta
+                                        </span>
+                            </a>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step">2s 351ms</span></td>
+                </tr>
+                    <tr>
+                        <td colspan="5">
+                            <table id="stepSection2" class="step-table-nested" style="display:none;">
+                <tr class="test-SUCCESS">
+
+                    <td width="70" class="step-icon">
+                        <a name="2-0"></a>
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection2-0')"
+                               style="display:block">
+                                <i class="bi bi-plus-square imgstepSection2-0 success-icon"
+                                   style="margin-left: 40px; float:left; padding-right:5px"></i>
+                            </a>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection2-0')"
+                               style="display:block;">
+                                <span class="nested-step">
+                                                Adrian crear transaccion nequi
+                                        </span>
+                            </a>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                    <td width="130"><span class="nested-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-step">2s 005ms</span></td>
+                </tr>
+                    <tr>
+                        <td colspan="5">
+                            <table id="stepSection2-0" class="step-table-nested" style="display:none;">
+                <tr class="test-SUCCESS">
+
+                    <td width="90" class="step-icon">
+                        <a name="2-0-0"></a>
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection2-0-0')"
+                               style="display:block">
+                                <i class="bi bi-plus-square imgstepSection2-0-0 success-icon"
+                                   style="margin-left: 60px; float:left; padding-right:5px"></i>
+                            </a>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection2-0-0')"
+                               style="display:block;">
+                                <span class="nested-step">
+                                                Adrian post request
+                                        </span>
+                            </a>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                    <td width="130"><span class="nested-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-step">1s 782ms</span></td>
+                </tr>
+                    <tr>
+                        <td colspan="5">
+                            <table id="stepSection2-0-0" class="step-table-nested" style="display:none;">
+                <tr class="test-SUCCESS">
+
+                    <td width="110" class="step-icon">
+                        <a name="2-0-0-0"></a>
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection2-0-0-0')"
+                               style="display:block">
+                                <i class="bi bi-plus-square imgstepSection2-0-0-0 success-icon"
+                                   style="margin-left: 80px; float:left; padding-right:5px"></i>
+                            </a>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection2-0-0-0')"
+                               style="display:block;">
+                                <span class="nested-step">
+                                                Adrian executes a POST on the resource /transactions
+                                        </span>
+                            </a>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                    <td width="130"><span class="nested-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-step">1s 753ms</span></td>
+                </tr>
+                    <tr>
+                        <td colspan="5">
+                            <table id="stepSection2-0-0-0" class="step-table-nested" style="display:none;">
+                <tr class="test-SUCCESS">
+
+                    <td width="130" class="step-icon">
+                        <a name="2-0-0-0-0"></a>
+                            <span style="margin-left: 100px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                POST https://api-sandbox.co.uat.wompi.dev/v1/transactions
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-14">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-14">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: https://api-sandbox.co.uat.wompi.dev/v1/transactions</p>
+                                    <p>Status code: 201</p>
+                                    <p>Content Type: application/json</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Authorization=Bearer pub_stagtest_g2u0HQd3ZMh05hsSgTS2lUV8t3s4mOt7<br>Accept=*/*<br>Content-Type=application/json</pre>
+                                    <h4>Content Body</h4>
+                                    <pre>{<br>    &quot;payment_method&quot;: {<br>        &quot;type&quot;: &quot;CARD&quot;,<br>        &quot;installments&quot;: 2,<br>        &quot;token&quot;: &quot;tok_stagtest_5113_8F6C7d5E2afCea9fcdd22F4264ffd92B&quot;<br>    },<br>    &quot;amount_in_cents&quot;: 1900000,<br>    &quot;reference&quot;: &quot;order-1760600431021&quot;,<br>    &quot;currency&quot;: &quot;COP&quot;,<br>    &quot;customer_email&quot;: &quot;adrianhdzm13@gmail.com&quot;,<br>    &quot;acceptance_token&quot;: &quot;eyJhbGciOiJIUzI1NiJ9.eyJjb250cmFjdF9pZCI6NTA3LCJwZXJtYWxpbmsiOiJodHRwczovL3dvbXBpLmNvbS9hc3NldHMvZG93bmxvYWRibGUvcmVnbGFtZW50by1Vc3Vhcmlvcy1Db2xvbWJpYS5wZGYiLCJmaWxlX2hhc2giOiJkYzJkNGUzMDVlNGQzNmFhYjhjYzU3N2I1YTY5Nzg1MSIsImppdCI6IjE3NjA2MDA0MjktNDgyMDciLCJlbWFpbCI6IiIsImV4cCI6MTc2MDYwNDAyOX0.rLh5yuQfPIY2nSYdT6grcMfJrqFL9kpRmAqdOYea1is&quot;,<br>    &quot;accept_personal_auth&quot;: &quot;eyJhbGciOiJIUzI1NiJ9.eyJjb250cmFjdF9pZCI6NDc0LCJwZXJtYWxpbmsiOiJodHRwczovL3dvbXBpLmNvbS9hc3NldHMvZG93bmxvYWRibGUvYXV0b3JpemFjaW9uLXRyYXRhbWllbnRvLWRhdG9zLXBlcnNvbmFsZXMucGRmIiwiZmlsZV9oYXNoIjoiNTE2ODYzZjA3NzZlZWY3NjBkNGI5OWFiMWJlZjRjNzgiLCJqaXQiOiIxNzYwNjAwNDI5LTEyMTk3IiwiZW1haWwiOiIifQ.usFqpATHsS1kcCQULbJpC65fnmVNDKjfwN-_LgVuPP0&quot;,<br>    &quot;signature&quot;: &quot;0b5cf3b934bf8e440df8ba03a4d9105358fe0e01f78068b4d8a03add57fc231f&quot;<br>}</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Content-Type: application/json<br>Content-Length: 700<br>Connection: keep-alive<br>Date: Thu, 16 Oct 2025 07:40:32 GMT<br>apigw-requestid: Sh4pfinuIAMEc7Q=<br>vary: Origin<br>X-Cache: Miss from cloudfront<br>Via: 1.1 56bd743379a0b287df603f3674891192.cloudfront.net (CloudFront)<br>X-Amz-Cf-Pop: ATL59-P14<br>X-Amz-Cf-Id: 4YxL1y0gxhNTiirZJyXcW7GcnMsVoJdTGYHC3DI_pH7sQ3Q4pbzLNQ==<br>X-XSS-Protection: 1; mode=block<br>X-Frame-Options: SAMEORIGIN<br>Referrer-Policy: strict-origin-when-cross-origin<br>X-Content-Type-Options: nosniff<br>Strict-Transport-Security: max-age=31536000</pre>
+                                <h4>Response Body</h4>
+                                    <pre>{<br>    &quot;data&quot;: {<br>        &quot;id&quot;: &quot;15113-1760600432-58419&quot;,<br>        &quot;created_at&quot;: &quot;2025-10-16T07:40:32.709Z&quot;,<br>        &quot;finalized_at&quot;: null,<br>        &quot;amount_in_cents&quot;: 1900000,<br>        &quot;reference&quot;: &quot;order-1760600431021&quot;,<br>        &quot;customer_email&quot;: &quot;adrianhdzm13@gmail.com&quot;,<br>        &quot;currency&quot;: &quot;COP&quot;,<br>        &quot;payment_method_type&quot;: &quot;CARD&quot;,<br>        &quot;payment_method&quot;: {<br>            &quot;type&quot;: &quot;CARD&quot;,<br>            &quot;extra&quot;: {<br>                &quot;bin&quot;: &quot;411111&quot;,<br>                &quot;name&quot;: &quot;VISA-1111&quot;,<br>                &quot;brand&quot;: &quot;VISA&quot;,<br>                &quot;card_type&quot;: &quot;DEBIT&quot;,<br>                &quot;last_four&quot;: &quot;1111&quot;,<br>                &quot;card_holder&quot;: &quot;Lizht Smith&quot;,<br>                &quot;is_three_ds&quot;: false,<br>                &quot;three_ds_auth_type&quot;: null<br>            },<br>            &quot;installments&quot;: 2<br>        },<br>        &quot;status&quot;: &quot;PENDING&quot;,<br>        &quot;status_message&quot;: null,<br>        &quot;billing_data&quot;: null,<br>        &quot;shipping_address&quot;: null,<br>        &quot;redirect_url&quot;: null,<br>        &quot;payment_source_id&quot;: null,<br>        &quot;payment_link_id&quot;: null,<br>        &quot;customer_data&quot;: null,<br>        &quot;bill_id&quot;: null,<br>        &quot;taxes&quot;: [<br>            <br>        ],<br>        &quot;tip_in_cents&quot;: null<br>    },<br>    &quot;meta&quot;: {<br>        <br>    }<br>}</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step"></span></td>
+                </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="70" class="step-icon">
+                        <a name="2-1"></a>
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection2-1')"
+                               style="display:block">
+                                <i class="bi bi-plus-square imgstepSection2-1 success-icon"
+                                   style="margin-left: 40px; float:left; padding-right:5px"></i>
+                            </a>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection2-1')"
+                               style="display:block;">
+                                <span class="nested-step">
+                                                Then {0} valida la respuesta de la API
+                                        </span>
+                            </a>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                    <td width="130"><span class="nested-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-step">274ms</span></td>
+                </tr>
+                    <tr>
+                        <td colspan="5">
+                            <table id="stepSection2-1" class="step-table-nested" style="display:none;">
+                <tr class="test-SUCCESS">
+
+                    <td width="90" class="step-icon">
+                        <a name="2-1-0"></a>
+                            <span style="margin-left: 60px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                SERVICE STATUS
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step">007ms</span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="90" class="step-icon">
+                        <a name="2-1-1"></a>
+                            <span style="margin-left: 60px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                SERVICE STATUS
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step">048ms</span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="90" class="step-icon">
+                        <a name="2-1-2"></a>
+                            <span style="margin-left: 60px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                SERVICE STATUS
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step">031ms</span></td>
+                </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="70" class="step-icon">
+                        <a name="2-2"></a>
+                            <span style="margin-left: 40px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                Then get last transaction id
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step">020ms</span></td>
+                </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="50" class="step-icon">
+                        <a name="3"></a>
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection3')"
+                               style="display:block">
+                                <i class="bi bi-plus-square imgstepSection3 success-icon"
+                                   style="margin-left: 20px; float:left; padding-right:5px"></i>
+                            </a>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection3')"
+                               style="display:block;">
+                                <span class="top-level-step">
+                                                Entonces la transacción debe ser declinada
+                                        </span>
+                            </a>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step">3s 668ms</span></td>
+                </tr>
+                    <tr>
+                        <td colspan="5">
+                            <table id="stepSection3" class="step-table-nested" style="display:none;">
+                <tr class="test-SUCCESS">
+
+                    <td width="70" class="step-icon">
+                        <a name="3-0"></a>
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection3-0')"
+                               style="display:block">
+                                <i class="bi bi-plus-square imgstepSection3-0 success-icon"
+                                   style="margin-left: 40px; float:left; padding-right:5px"></i>
+                            </a>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection3-0')"
+                               style="display:block;">
+                                <span class="nested-step">
+                                                Adrian call the service at execute GET
+                                        </span>
+                            </a>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                    <td width="130"><span class="nested-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-step">565ms</span></td>
+                </tr>
+                    <tr>
+                        <td colspan="5">
+                            <table id="stepSection3-0" class="step-table-nested" style="display:none;">
+                <tr class="test-SUCCESS">
+
+                    <td width="90" class="step-icon">
+                        <a name="3-0-0"></a>
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection3-0-0')"
+                               style="display:block">
+                                <i class="bi bi-plus-square imgstepSection3-0-0 success-icon"
+                                   style="margin-left: 60px; float:left; padding-right:5px"></i>
+                            </a>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection3-0-0')"
+                               style="display:block;">
+                                <span class="nested-step">
+                                                Adrian get request
+                                        </span>
+                            </a>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                    <td width="130"><span class="nested-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-step">557ms</span></td>
+                </tr>
+                    <tr>
+                        <td colspan="5">
+                            <table id="stepSection3-0-0" class="step-table-nested" style="display:none;">
+                <tr class="test-SUCCESS">
+
+                    <td width="110" class="step-icon">
+                        <a name="3-0-0-0"></a>
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection3-0-0-0')"
+                               style="display:block">
+                                <i class="bi bi-plus-square imgstepSection3-0-0-0 success-icon"
+                                   style="margin-left: 80px; float:left; padding-right:5px"></i>
+                            </a>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection3-0-0-0')"
+                               style="display:block;">
+                                <span class="nested-step">
+                                                Adrian executes a GET on the resource /transactions/15113-1760600432-58419
+                                        </span>
+                            </a>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                    <td width="130"><span class="nested-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-step">534ms</span></td>
+                </tr>
+                    <tr>
+                        <td colspan="5">
+                            <table id="stepSection3-0-0-0" class="step-table-nested" style="display:none;">
+                <tr class="test-SUCCESS">
+
+                    <td width="130" class="step-icon">
+                        <a name="3-0-0-0-0"></a>
+                            <span style="margin-left: 100px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                GET https://api-sandbox.co.uat.wompi.dev/v1/transactions/15113-1760600432-58419
+                                        </span>
+                            <span class="evidence">
+                                        <span class="piece-of-evidence">
+                <span>
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="collapse"
+                                data-target="#restModal-REST-24">
+                            REST Query
+                        </button>
+                    </span>
+                <!-- Modal -->
+                <div class="rest-query-details">
+                    <div class="collapse multi-collapse" id="restModal-REST-24">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4>Response</h4>
+                                    <p>URL: https://api-sandbox.co.uat.wompi.dev/v1/transactions/15113-1760600432-58419</p>
+                                    <p>Status code: 200</p>
+                                    <p>Content Type: application/json</p>
+                                    <h4>Request Headers</h4>
+                                    <pre>Accept=JSON<br>Content-Type=application/json</pre>
+                                    <h4>Response Headers</h4>
+                                    <pre>Content-Type: application/json<br>Transfer-Encoding: chunked<br>Connection: keep-alive<br>Date: Thu, 16 Oct 2025 07:40:36 GMT<br>vary: Origin<br>vary: accept-encoding<br>apigw-requestid: Sh4qTgByIAMEVlw=<br>content-encoding: gzip<br>X-Cache: Miss from cloudfront<br>Via: 1.1 ed769d9f7e8f06199b47692e115648e2.cloudfront.net (CloudFront)<br>X-Amz-Cf-Pop: ATL59-P14<br>X-Amz-Cf-Id: grOck8ddV_1FmjV8GQIG0fd9uDs54hVLmDm_kULMb5PfPS8eI_Z8Og==<br>X-XSS-Protection: 1; mode=block<br>X-Frame-Options: SAMEORIGIN<br>Referrer-Policy: strict-origin-when-cross-origin<br>X-Content-Type-Options: nosniff<br>Strict-Transport-Security: max-age=31536000</pre>
+                                <h4>Response Body</h4>
+                                    <pre>{<br>    &quot;data&quot;: {<br>        &quot;id&quot;: &quot;15113-1760600432-58419&quot;,<br>        &quot;created_at&quot;: &quot;2025-10-16T07:40:32.709Z&quot;,<br>        &quot;finalized_at&quot;: &quot;2025-10-16T07:40:33.141Z&quot;,<br>        &quot;amount_in_cents&quot;: 1900000,<br>        &quot;reference&quot;: &quot;order-1760600431021&quot;,<br>        &quot;currency&quot;: &quot;COP&quot;,<br>        &quot;payment_method_type&quot;: &quot;CARD&quot;,<br>        &quot;payment_method&quot;: {<br>            &quot;type&quot;: &quot;CARD&quot;,<br>            &quot;extra&quot;: {<br>                &quot;name&quot;: &quot;VISA-1111&quot;,<br>                &quot;brand&quot;: &quot;VISA&quot;,<br>                &quot;card_type&quot;: &quot;DEBIT&quot;,<br>                &quot;last_four&quot;: &quot;1111&quot;,<br>                &quot;is_three_ds&quot;: false,<br>                &quot;three_ds_auth&quot;: null,<br>                &quot;three_ds_auth_type&quot;: null,<br>                &quot;external_identifier&quot;: &quot;07g7MC9UWh&quot;,<br>                &quot;processor_response_code&quot;: &quot;12&quot;<br>            },<br>            &quot;installments&quot;: 2<br>        },<br>        &quot;payment_link_id&quot;: null,<br>        &quot;redirect_url&quot;: null,<br>        &quot;status&quot;: &quot;DECLINED&quot;,<br>        &quot;status_message&quot;: &quot;La transacción fue rechazada (Sandbox)&quot;,<br>        &quot;merchant&quot;: {<br>            &quot;id&quot;: 5113,<br>            &quot;name&quot;: &quot;Alejandra Pruebas Sandbox UAT&quot;,<br>            &quot;legal_name&quot;: &quot;Alejandra Pruebas Sandbox UAT&quot;,<br>            &quot;contact_name&quot;: &quot;Alejandra Pruebas Sandbox UAT&quot;,<br>            &quot;phone_number&quot;: &quot;+573000000000&quot;,<br>            &quot;logo_url&quot;: null,<br>            &quot;legal_id_type&quot;: &quot;CC&quot;,<br>            &quot;email&quot;: &quot;pruebasensandbox@yopmail.com&quot;,<br>            &quot;legal_id&quot;: &quot;1069879849&quot;,<br>            &quot;public_key&quot;: &quot;pub_stagtest_g2u0HQd3ZMh05hsSgTS2lUV8t3s4mOt7&quot;<br>        },<br>        &quot;taxes&quot;: [<br>            <br>        ],<br>        &quot;tip_in_cents&quot;: null<br>    },<br>    &quot;meta&quot;: {<br>        <br>    }<br>}</pre>
+                                    <h4>Response Cookies</h4>
+                                    <pre></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        </span>
+                                </span>
+                        </div>
+                    </td>
+
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step"></span></td>
+                </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="70" class="step-icon">
+                        <a name="3-1"></a>
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection3-1')"
+                               style="display:block">
+                                <i class="bi bi-plus-square imgstepSection3-1 success-icon"
+                                   style="margin-left: 40px; float:left; padding-right:5px"></i>
+                            </a>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                            <a href="javaScript:void(0)" onClick="toggleDiv('stepSection3-1')"
+                               style="display:block;">
+                                <span class="nested-step">
+                                                Then {0} valida la respuesta de la API
+                                        </span>
+                            </a>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                    <td width="130"><span class="nested-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-step">066ms</span></td>
+                </tr>
+                    <tr>
+                        <td colspan="5">
+                            <table id="stepSection3-1" class="step-table-nested" style="display:none;">
+                <tr class="test-SUCCESS">
+
+                    <td width="90" class="step-icon">
+                        <a name="3-1-0"></a>
+                            <span style="margin-left: 60px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                SERVICE STATUS
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step">005ms</span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="90" class="step-icon">
+                        <a name="3-1-1"></a>
+                            <span style="margin-left: 60px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                SERVICE STATUS
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step">015ms</span></td>
+                </tr>
+                <tr class="test-SUCCESS">
+
+                    <td width="90" class="step-icon">
+                        <a name="3-1-2"></a>
+                            <span style="margin-left: 60px;"
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
+                                </span>
+                    </td>
+
+                    <td class="step-description-column">
+                        <div class="step-description">
+                                <span class="nested-group-step">
+                                                SERVICE STATUS
+                                        </span>
+                            <span class="evidence">
+                                </span>
+                        </div>
+                    </td>
+
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step">014ms</span></td>
+                </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+            <tr class="test-SUCCESS">
+                    <td colspan="2"></td>
+                <td width="130"><span class="top-level-step"><em>SUCCESS</em></span></td>
+                <td width="100"><span class="top-level-step"><em>11.81s</em></span></td>
+            </tr>
+
+        </table>
+    </div>
+</div>
+
+<div id="beforefooter"></div>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <span class="version">Serenity BDD version 3.3.4</span>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function toggleDiv(divId) {
+        $("#" + divId).toggle();
+        var imgsrc = $(".img" + divId).attr('src');
+        if (imgsrc == 'images/plus.png') {
+            $(".img" + divId).attr("src", function () {
+                return "images/minus.png";
+            });
+
+        } else {
+            $(".img" + divId).attr("src", function () {
+                return "images/plus.png";
+            });
+        }
+    }
+</script>
+
+
+<script type="text/javascript">
+    //<![CDATA[
+
+    $(document).ready(function () {
+        $('img.screenshot').imgPreview({
+            imgCSS: {
+                width: '500px'
+            },
+            distanceFromCursor: {top: 10, left: -200}
+        });
+    });
+
+    //]]>
+</script>
+<div id="imgPreviewContainer" style="position: absolute; top: 612px; left: 355px; display: none; " class=""><img
+            src="" style="display: none; "></div>
+<div id="imgPreviewContainer2" style="position: absolute; top: 925px; left: 320px; display: none; " class="">
+    <img style="width: 200px; display: none; " src=""></div>
+<div id="imgPreviewWithStyles" style="position: absolute; top: 1272px; left: 321px; display: none; " class="">
+    <img style="height: 200px; opacity: 1; display: none; " src=""></div>
+<div id="imgPreviewWithStyles2" style="display: none; position: absolute; "><img style="height: 200px; "></div>
+<div id="imgPreviewWithStyles3" style="display: none; position: absolute; "><img style="height: 200px; "></div>
+
+</div>
+</body>
+</html>

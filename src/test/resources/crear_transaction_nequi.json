@@ -1,0 +1,46 @@
+{
+  "transactionNequi": {
+    "amount_in_cents": 1400000,
+    "currency": "{{currency}}",
+    "payment_method_type": "NEQUI",
+    "payment_method": {
+      "type": "NEQUI",
+      "phone_number": "3991111111"
+    },
+    "customer_email": "cliente@example.com",
+    "reference": "{{reference}}",
+    "acceptance_token": "{{acceptance_token}}",
+    "accept_personal_auth": "{{accept_personal_auth}}",
+    "signature": "{{signature}}"
+  },
+
+  "transactionNequiDeclinada": {
+    "amount_in_cents": 1800000,
+    "currency": "{{currency}}",
+    "payment_method_type": "NEQUI",
+    "payment_method": {
+      "type": "NEQUI",
+      "phone_number": "3992222222"
+    },
+    "customer_email": "cliente@example.com",
+    "reference": "{{reference}}",
+    "acceptance_token": "{{acceptance_token}}",
+    "accept_personal_auth": "{{accept_personal_auth}}",
+    "signature": "{{signature}}"
+  },
+
+  "transactionNequiDatosInvalidos": {
+    "amount_in_cents": 10,
+    "currency": "{{currency}}",
+    "payment_method_type": "NEQUI",
+    "payment_method": {
+      "type": "NEQUI",
+      "phone_number": "3992222222"
+    },
+    "customer_email": "cliente@example.com",
+    "reference": "{{reference}}",
+    "acceptance_token": "{{acceptance_token}}",
+    "accept_personal_auth": "{{accept_personal_auth}}",
+    "signature": "{{signature}}"
+  }
+}

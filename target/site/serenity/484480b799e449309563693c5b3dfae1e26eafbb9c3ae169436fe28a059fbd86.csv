@@ -1,0 +1,3 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Transacción con Nequi en Wompi Sandbox","Crear una transacción aprobada con Nequi","SUCCESS","2025-10-16T01:01:36.422-05:00[America/Bogota]","0.0","9.61"
+"Transacción con Nequi en Wompi Sandbox","Consultar por id inexistente","SUCCESS","2025-10-16T01:02:02.788-05:00[America/Bogota]","0.0","3.33"

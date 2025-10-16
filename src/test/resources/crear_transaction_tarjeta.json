@@ -1,0 +1,31 @@
+{
+  "transactionTarjeta": {
+    "payment_method": {
+      "type": "CARD",
+      "installments": 2,
+      "token": "tok_stagtest_5113_335cC5d1517b65Ac3865c7b01690CF45"
+    },
+    "amount_in_cents": 1800000,
+    "reference": "{{reference}}",
+    "currency": "{{currency}}",
+    "customer_email": "adrianhdzm13@gmail.com",
+    "acceptance_token": "{{acceptance_token}}",
+    "accept_personal_auth": "{{accept_personal_auth}}",
+    "signature": "{{signature}}"
+  },
+
+  "transactionTarjetaDeclinada": {
+    "payment_method": {
+      "type": "CARD",
+      "installments": 2,
+      "token": "tok_stagtest_5113_8F6C7d5E2afCea9fcdd22F4264ffd92B"
+    },
+    "amount_in_cents": 1900000,
+    "reference": "{{reference}}",
+    "currency": "{{currency}}",
+    "customer_email": "adrianhdzm13@gmail.com",
+    "acceptance_token": "{{acceptance_token}}",
+    "accept_personal_auth": "{{accept_personal_auth}}",
+    "signature": "{{signature}}"
+  }
+}
