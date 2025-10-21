@@ -18,11 +18,6 @@ public class JsonFileReader {
         throw new IllegalStateException("Utility class");
     }
 
-    /**
-     * Lee un archivo JSON completo desde el classpath
-     * @param nombreArchivo nombre del archivo JSON
-     * @return contenido del archivo como String
-     */
     public static String leerJsonCompleto(String nombreArchivo) {
         try (InputStream inputStream = JsonFileReader.class.getClassLoader()
                 .getResourceAsStream(nombreArchivo);
@@ -39,12 +34,6 @@ public class JsonFileReader {
         }
     }
 
-    /**
-     * Lee un nodo específico de un archivo JSON
-     * @param nombreArchivo nombre del archivo JSON
-     * @param nodo nombre del nodo a extraer (ejemplo: "usuarioExitoso")
-     * @return contenido del nodo como String JSON
-     */
     public static String leerNodoJson(String nombreArchivo, String nodo) {
         try (InputStream inputStream = JsonFileReader.class.getClassLoader()
                 .getResourceAsStream(nombreArchivo);
@@ -66,12 +55,6 @@ public class JsonFileReader {
         }
     }
 
-    /**
-     * Lee un nodo específico y lo retorna como JsonObject para manipulación adicional
-     * @param nombreArchivo nombre del archivo JSON
-     * @param nodo nombre del nodo a extraer
-     * @return JsonObject del nodo especificado
-     */
     public static JsonObject leerNodoComoObjeto(String nombreArchivo, String nodo) {
         try (InputStream inputStream = JsonFileReader.class.getClassLoader()
                 .getResourceAsStream(nombreArchivo);
